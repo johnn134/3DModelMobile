@@ -15,6 +15,14 @@ I did this so that I could rotate the teapot and galleon to be right side up wit
 My method of the matrix stack was to recursively pass through the parents of a mesh object when computing the CTM. 
 The individual objects rotate faster than the arms to make the rotations noticeable.
 
+Commands:
+e - draws bounding boxes around models
+s - mobile arms will shrink and stretch in a sinusoid motion
+p - increases spotlight cutoff angle
+P - decreases spotlight cutoff angle
+m - scene uses per-pixel shading
+M - scene uses vertex/flat shading
+
 My hierarchy structure is as follows:
 
 Empty root
