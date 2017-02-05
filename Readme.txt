@@ -1,11 +1,36 @@
-Please read:
+2/5/17
 
-opengl-quick-reference-card.pdf
-glsl_quickref.pdf
-The OpenGL Shading Language.pdf
+author: John Nelson
 
-before starting.
+This is the source code for my 3D mobile graphics project.
 
+Program is written in OpenGL with freeglut and GLEW. Your computer must have OpenGL v4.3 at least.
+It uses the freeglut 3.0.0 library: http://freeglut.sourceforge.net/
+It also uses glew 2.0
 
-OGL manpages:
-http://www.opengl.org/sdk/docs/manglsl/
+The program reads in 7 model files from ply_files. These files are turned into mesh objects called MyMesh. GenerateGeometry passes the point, color, and normal data for each model mesh, mobile arm, and axis line to the array object. Each mobile arm is its own mesh object in my code. Also, every model is a child of an empty mesh object in the model hierarchy. I did this so that I could rotate the teapot and galleon to be right side up without messing up the rotation of the rest of the mobile. My method of the matrix stack was to recursively pass through the parents of a mesh object when computing the CTM. The individual objects rotate faster than the arms to make the rotations noticeable.
+
+My hierarchy structure is as follows:
+
+Empty root
+->Cow Model
+->Level 1 Arm
+- ->Empty Node
+- - ->Ant Model
+- ->Empty Node
+- - ->Teapot Model
+- - ->Level 2 Arm
+- - - ->Empty Node
+- - - - ->Shark Model
+- - - ->Empty Node
+- - - - ->Beethoven Model
+- - - - ->Level 3 Node
+- - - - - ->Empty Node
+- - - - - - ->Big_dodge Model
+- - - - - ->Empty Node
+- - - - - - ->Galleon Model
+
+The program runs at 30 Frames Per Second.
+Note: The cow is white, so it disappears into the background when it is in the area of the spotlight. My spotlight simply maximizes the color value of a vertex.
+
+Computer must 
